@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JFSS HACK CLUB | Tech & Code</title>
+    <style>
+        :root {
+            --hack-red: #ff3333;
+            --dark-bg: #1a1a1a;
+            --card-bg: #2d2d2d;
+            --text-white: #f5f5f5;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-white);
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            padding: 4rem 2rem;
+            text-align: center;
+            background: linear-gradient(135deg, #333, #000);
+            border-bottom: 4px solid var(--hack-red);
+        }
+
+        h1 { font-size: 3.5rem; margin: 0; color: var(--hack-red); }
+        p.subtitle { font-size: 1.2rem; opacity: 0.8; }
+
+        .container { max-width: 1000px; margin: auto; padding: 2rem; }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            border-left: 5px solid var(--hack-red);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover { transform: translateY(-10px); }
+
+        .btn {
+            display: inline-block;
+            background: var(--hack-red);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-top: 1rem;
+        }
+
+        footer { text-align: center; padding: 3rem; opacity: 0.6; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>JFSS HACK CLUB</h1>
+    <p class="subtitle">Building Software. Repairing Tech. Empowering Fraser.</p>
+</header>
+
+<div class="container">
+    <section>
+        <h2>Our Mission</h2>
+        <p>Led by <strong>Yousuf Yaghmour</strong>, the JFSS Hack Club is a community of builders. Whether you need a custom app for your club or your laptop screen is flickering, we're here to solve problems and teach you how to do it yourself.</p>
+    </section>
+
+    <div class="grid">
+        <div class="card">
+            <h3>💻 General Coding Tasks</h3>
+            <p>Need a website for your club? A script to automate your data? Our dev team takes on projects for any student or teacher at John Fraser.</p>
+            <a href="#" class="btn">Request a Project</a>
+        </div>
+
+        <div class="card">
+            <h3>🔧 Tech Repair Clinic</h3>
+            <p>Don't throw it away! We educate students on hardware maintenance and help diagnose issues with phones, laptops, and more.</p>
+            <a href="#" class="btn">Get Help</a>
+        </div>
+    </div>
+
+    <section style="margin-top: 4rem; text-align: center;">
+        <h2>Ready to Join?</h2>
+        <p>We are always looking for more tinkerers, coders, and problem solvers.</p>
+        <a href="mailto:yousuf@example.com" class="btn">Contact Yousuf</a>
+    </section>
+</div>
+
+<footer>
+    &copy; 2026 JFSS Hack Club. Not officially affiliated with JFSS Administration.
+</footer>
+
+</body>
+</html>
