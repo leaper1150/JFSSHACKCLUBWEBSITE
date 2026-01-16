@@ -3,102 +3,185 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JFSS HACK CLUB | Tech & Code</title>
+    <title>JFSS HACK CLUB | Ships & Repairs</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@400;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --hack-red: #ff3333;
-            --dark-bg: #1a1a1a;
-            --card-bg: #2d2d2d;
-            --text-white: #f5f5f5;
+            --hc-red: #ec3750;
+            --hc-blue: #338eda;
+            --dark: #0c0c0e;
+            --terminal-green: #00ff41;
+            --card-bg: #16161a;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--dark-bg);
-            color: var(--text-white);
+            background-color: var(--dark);
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
             margin: 0;
             line-height: 1.6;
         }
 
+        .mono { font-family: 'Space Mono', monospace; }
+
+        /* --- Terminal Header --- */
+        .terminal-bar {
+            background: #252429;
+            padding: 10px 20px;
+            display: flex;
+            gap: 8px;
+            border-bottom: 1px solid #333;
+        }
+        .dot { width: 12px; height: 12px; border-radius: 50%; }
+        .red { background: #ff5f56; } .yellow { background: #ffbd2e; } .green { background: #27c93f; }
+
         header {
-            padding: 4rem 2rem;
             text-align: center;
-            background: linear-gradient(135deg, #333, #000);
-            border-bottom: 4px solid var(--hack-red);
+            padding: 80px 20px;
+            background: radial-gradient(circle at center, #1a1a2e 0%, var(--dark) 100%);
         }
 
-        h1 { font-size: 3.5rem; margin: 0; color: var(--hack-red); }
-        p.subtitle { font-size: 1.2rem; opacity: 0.8; }
+        .glitch {
+            font-size: clamp(3rem, 12vw, 7rem);
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -3px;
+            margin: 0;
+            color: var(--hc-red);
+            text-shadow: 2px 2px #000, 4px 4px var(--hc-blue);
+        }
 
-        .container { max-width: 1000px; margin: auto; padding: 2rem; }
+        /* --- The Mission Grid --- */
+        .container { max-width: 1100px; margin: auto; padding: 20px; }
 
-        .grid {
+        .service-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
+            gap: 25px;
+            margin-top: -50px;
         }
 
         .card {
             background: var(--card-bg);
-            padding: 2rem;
-            border-radius: 12px;
-            border-left: 5px solid var(--hack-red);
-            transition: transform 0.3s ease;
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid #333;
+            transition: 0.3s;
+            position: relative;
+            overflow: hidden;
         }
 
-        .card:hover { transform: translateY(-10px); }
+        .card:hover { border-color: var(--hc-red); transform: translateY(-5px); }
+        
+        .card h3 { color: var(--hc-red); margin-top: 0; }
+
+        /* --- Photo Gallery --- */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin: 50px 0;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 10px;
+            filter: saturate(1.2) contrast(1.1);
+            border: 1px solid #444;
+        }
+
+        /* --- Fun Hacking Bits --- */
+        .console {
+            background: #000;
+            color: var(--terminal-green);
+            padding: 20px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            border-left: 4px solid var(--terminal-green);
+            margin: 40px 0;
+        }
+
+        .blink { animation: blinker 1s linear infinite; }
+        @keyframes blinker { 50% { opacity: 0; } }
+
+        /* --- Call to Action --- */
+        .cta-box {
+            background: var(--hc-red);
+            padding: 60px 20px;
+            text-align: center;
+            border-radius: 20px;
+            margin: 60px 0;
+        }
 
         .btn {
-            display: inline-block;
-            background: var(--hack-red);
-            color: white;
-            padding: 0.8rem 1.5rem;
+            background: white;
+            color: var(--hc-red);
+            padding: 18px 35px;
+            border-radius: 10px;
+            font-weight: 900;
             text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            margin-top: 1rem;
+            display: inline-block;
+            font-size: 1.2rem;
+            transition: 0.2s;
         }
 
-        footer { text-align: center; padding: 3rem; opacity: 0.6; font-size: 0.9rem; }
+        .btn:hover { transform: scale(1.05); box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
+
+        footer { text-align: center; padding: 40px; opacity: 0.4; font-size: 0.8rem; }
     </style>
 </head>
 <body>
 
+<div class="terminal-bar">
+    <div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div>
+    <span class="mono" style="margin-left: 10px; font-size: 12px; color: #888;">jfss_hack_club --bash</span>
+</div>
+
 <header>
-    <h1>JFSS HACK CLUB</h1>
-    <p class="subtitle">Building Software. Repairing Tech. Empowering Fraser.</p>
+    <h1 class="glitch">JFSS HACK CLUB</h1>
+    <p class="mono" style="font-size: 1.2rem; color: var(--hc-blue);">// SHIPS CODE. FIXES TECH. REPEATS.</p>
 </header>
 
 <div class="container">
-    <section>
-        <h2>Our Mission</h2>
-        <p>Led by <strong>Yousuf Yaghmour</strong>, the JFSS Hack Club is a community of builders. Whether you need a custom app for your club or your laptop screen is flickering, we're here to solve problems and teach you how to do it yourself.</p>
-    </section>
-
-    <div class="grid">
+    
+    <div class="service-grid">
         <div class="card">
-            <h3>💻 General Coding Tasks</h3>
-            <p>Need a website for your club? A script to automate your data? Our dev team takes on projects for any student or teacher at John Fraser.</p>
-            <a href="#" class="btn">Request a Project</a>
+            <h3 class="mono">>_ CODING_TASKS</h3>
+            <p>Need a custom script? A website for your club? A tool to automate the boring stuff? Our dev team builds software for the Fraser community.</p>
         </div>
-
         <div class="card">
-            <h3>🔧 Tech Repair Clinic</h3>
-            <p>Don't throw it away! We educate students on hardware maintenance and help diagnose issues with phones, laptops, and more.</p>
-            <a href="#" class="btn">Get Help</a>
+            <h3 class="mono">>_ TECH_REPAIR</h3>
+            <p>Don't bin it—fix it. We educate students on hardware maintenance. From diagnostic help to teaching you how to swap a part, we've got you.</p>
         </div>
     </div>
 
-    <section style="margin-top: 4rem; text-align: center;">
-        <h2>Ready to Join?</h2>
-        <p>We are always looking for more tinkerers, coders, and problem solvers.</p>
-        <a href="mailto:yousuf@example.com" class="btn">Contact Yousuf</a>
-    </section>
+    <div class="console mono">
+        <div>[SYSTEM] JFSS Hack Club initialized...</div>
+        <div>[INFO] Scanning for broken hardware... FOUND.</div>
+        <div>[INFO] Deploying code solutions... SUCCESS.</div>
+        <div>[STATUS] Coffee/Monster levels: <span style="color:red">CRITICAL</span></div>
+        <div>[LIVE] > <span class="blink">_</span></div>
+    </div>
+
+    <h2 class="mono" style="text-align: center; margin-top: 80px;">LIVE FROM THE LAB</h2>
+    <div class="gallery">
+        <img src="image_4b72ca.jpg" alt="Late night coding sessions">
+        <img src="image_4b72d0.jpg" alt="Collaborative hacking">
+        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800" alt="Hardware repair">
+    </div>
+
+    <div class="cta-box">
+        <h2 style="font-size: 2.5rem; margin-bottom: 10px;">GOT A PROBLEM?</h2>
+        <p style="margin-bottom: 30px; font-weight: bold;">Submit a project request or repair ticket below.</p>
+        <a href="https://forms.gle/J1L4jNWUfmb4RCWo9" class="btn" target="_blank">OPEN A TICKET</a>
+    </div>
+
 </div>
 
-<footer>
-    &copy; 2026 JFSS Hack Club. Not officially affiliated with JFSS Administration.
+<footer class="mono">
+    &copy; 2026 JFSS Hack Club | Root Access Granted.
 </footer>
 
 </body>
