@@ -26,7 +26,7 @@
 
         .mono { font-family: 'Space Mono', monospace; }
 
-        /* Terminal Style Bar */
+        /* Terminal Bar */
         .terminal-bar {
             background: #252429;
             padding: 10px 20px;
@@ -52,7 +52,7 @@
 
         .container { max-width: 900px; margin: auto; padding: 20px; flex-grow: 1; }
 
-        /* Services */
+        /* Services Grid */
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -65,8 +65,9 @@
             padding: 30px;
             border-radius: 12px;
             border: 1px solid #333;
+            transition: border-color 0.2s;
         }
-
+        .card:hover { border-color: var(--hc-blue); }
         .card h3 { color: var(--hc-blue); margin-top: 0; }
 
         /* Terminal Console */
@@ -83,8 +84,32 @@
         .blink { animation: blinker 1s linear infinite; }
         @keyframes blinker { 50% { opacity: 0; } }
 
-        /* Action Button */
-        .cta { text-align: center; margin-bottom: 80px; }
+        /* Instagram & CTA Sections */
+        .social-cta-wrap {
+            text-align: center;
+            margin-bottom: 80px;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .ig-area {
+            padding: 20px;
+            border: 1px dashed #444;
+            border-radius: 12px;
+        }
+
+        .ig-link {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            padding: 10px 20px;
+            border-radius: 8px;
+            transition: color 0.2s;
+        }
+        .ig-link:hover { color: var(--hc-red); }
+
         .btn {
             background: var(--hc-red);
             color: white;
@@ -98,7 +123,7 @@
         }
         .btn:hover { transform: scale(1.05); }
 
-        footer { text-align: center; padding: 40px; opacity: 0.4; font-size: 0.8rem; }
+        footer { text-align: center; padding: 40px; opacity: 0.4; font-size: 0.8rem; border-top: 1px solid #222; }
     </style>
 </head>
 <body>
@@ -127,14 +152,21 @@
     </div>
 
     <div class="console mono">
-        <div>[SYS] Scanning Fraser network... OK</div>
+        <div>[SYS] Connection established.</div>
         <div>[SYS] Ready for project requests.</div>
-        <div>[HINT] High performance fueled by caffeine.</div>
+        <div>[HINT] Follow the Instagram for live build updates.</div>
         <div>[LIVE] > <span class="blink">_</span></div>
     </div>
 
-    <div class="cta">
-        <a href="https://forms.gle/J1L4jNWUfmb4RCWo9" class="btn" target="_blank">REQUEST HELP / OPEN TICKET</a>
+    <div class="social-cta-wrap">
+        <div class="ig-area">
+            <p class="mono" style="margin-bottom: 10px; opacity: 0.7;">// SOCIAL_FEED</p>
+            <a href="https://www.instagram.com/jfss_hackclub/" target="_blank" class="ig-link">INSTAGRAM: @JFSS_HACKCLUB</a>
+        </div>
+
+        <div>
+            <a href="https://forms.gle/J1L4jNWUfmb4RCWo9" class="btn" target="_blank">REQUEST HELP / OPEN TICKET</a>
+        </div>
     </div>
 
 </div>
